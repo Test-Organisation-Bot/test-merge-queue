@@ -15,6 +15,8 @@ jobs:
       - name: Run validation
         run: |
           echo "Running CI checks..."
+          echo "Waiting 30 seconds..."
+          sleep 30
           echo "Validating project structure..."
           test -f README.md && echo "README exists" || exit 1
           echo "All checks passed!"
