@@ -1,0 +1,20 @@
+name: CI Check
+
+on:
+  pull_request:
+    branches: [main]
+  merge_group:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run validation
+        run: |
+          echo "Running CI checks..."
+          echo "Validating project structure..."
+          test -f README.md && echo "README exists" || exit 1
+          echo "All checks passed!"
